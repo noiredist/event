@@ -1,0 +1,692 @@
+@import url("https://fonts.googleapis.com/css?family=Lora");
+html, body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #100a1c;
+  background-image: radial-gradient(50% 30% ellipse at center top, #201e40 0%, rgba(0, 0, 0, 0) 100%), radial-gradient(60% 50% ellipse at center bottom, #261226 0%, #100a1c 100%);
+  background-attachment: fixed;
+  color: #6cacc5;
+  position: relative;
+  font-family: "Roboto", "serif";
+  width: 100%;
+  height: 100%;
+}
+
+a, a:active, a:hover, a:visited {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+#app {
+  background: radial-gradient(50% 30% ellipse at center top, #201e40 0%, rgba(0, 0, 0, 0) 100%), radial-gradient(60% 50% ellipse at center bottom, #261226 0%, #100a1c 100%);
+  background-attachment: fixed;
+}
+
+#hello {
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  position: relative;
+  overflow: scroll;
+  background: url("./assets/home-bg.b4e32ed.jpg") top center no-repeat;
+  background-size: cover;
+}
+#hello .loading {
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  animation: visibleToHidden 1s;
+  animation-delay: 3s;
+  animation-fill-mode: forwards;
+  background: url("./assets/loading-bg.jpg") top center no-repeat;
+  background-size: cover;
+}
+#hello .loading h1 {
+  display: inline-block;
+  position: absolute;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#FAE68F), color-stop(40%, #D5B54D), to(#B9912C));
+  background-image: linear-gradient(#FAE68F 0%, #D5B54D 40%, #B9912C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  top: 50%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  font-size: 26px;
+  font-weight: normal;
+  width: 100%;
+  text-align: center;
+  transition: linear 2s;
+}
+#hello .loading h3 {
+  position: absolute;
+  top: 70%;
+  left: 70%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+  font-weight: 100;
+  transition: linear 2s;
+}
+#hello .loading .square {
+  opacity: 0;
+  width: 100%;
+  margin-top: 70vw;
+  color: #fff;
+  position: absolute;
+  font-size: 36px;
+  text-align: center;
+  transform: scale(2);
+  animation: zoom 1s ease-in-out;
+  animation-delay: 0s;
+}
+#hello .loading .square2 {
+  opacity: 0;
+  width: 100%;
+  margin-top: 70vw;
+  color: #fff;
+  position: absolute;
+  font-size: 36px;
+  text-align: center;
+  transform: scale(2);
+  animation: zoom 1s ease-in-out;
+  animation-delay: 1s;
+}
+#hello .loading .square3 {
+  opacity: 0;
+  width: 100%;
+  margin-top: 70vw;
+  color: #fff;
+  position: absolute;
+  font-size: 36px;
+  text-align: center;
+  transform: scale(2);
+  animation: zoom 1s ease-in-out;
+  animation-delay: 2s;
+}
+#hello .loading .circle {
+  width: 500px;
+  height: 500px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  animation: circleScale 5s, changeCircleWidth 1s;
+  animation-delay: 0s, 6.5s;
+}
+#hello .loading .star-wrap {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) rotate(0deg);
+  transition: linear 1s;
+  animation: clockwise 5s, overScale 2s;
+  animation-delay: 0s, 7s;
+  animation-fill-mode: forwards;
+}
+#hello .loading .star-wrap .triangle {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 182.5px 313px 182.5px;
+  border-color: transparent transparent transparent transparent;
+  position: relative;
+  left: 0;
+  top: 130px;
+}
+#hello .loading .star-wrap .triangle-r {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 182.5px 313px 182.5px;
+  border-color: transparent transparent transparent transparent;
+  transform: rotate(180deg);
+  position: relative;
+  left: 0;
+  top: -130px;
+}
+
+.square {
+  transition: linear 1s;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  transition: linear 1s;
+}
+
+.qhide {
+  display: none;
+}
+
+#done-wrap {
+  width: 100%;
+  height: 100%;
+  display: none;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  transition: linear 1s;
+}
+#done-wrap .option {
+  width: 45%;
+  margin-bottom: 20vh;
+  margin-right: 2.5%;
+  bottom: 30%;
+  float: right;
+  text-align: center;
+  border: 2px solid #fff;
+  border-radius: 30.5px;
+  line-height: 1.8;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: block;
+  height: 9vw;
+  font-size: 4.6vmin;
+}
+#done-wrap h1 {
+  display: inline-block;
+  position: absolute;
+  top: 39%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  width: 100%;
+  text-align: center;
+  transition: linear 2s;
+  z-index: 2;
+}
+#done-wrap h3 {
+  position: absolute;
+  width: 75%;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  font-size: 22px;
+  font-weight: 100;
+  transition: linear 2s;
+  z-index: 2;
+  letter-spacing: 2px;
+}
+#done-wrap p {
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 60vh;
+}
+#done-wrap .t-0, #done-wrap .t-1, #done-wrap .t-2, #done-wrap .t-3, #done-wrap .t-4 {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  position: absolute;
+  transition: 1s linear;
+  animation-fill-mode: forwards;
+}
+
+.bg2 {
+  background: url("./assets/home-bg.b4e32ed.jpg") top center no-repeat;
+  background-size: cover;
+}
+
+.q {
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  animation: question-frame 0.8s, hiddenToVisible 1s;
+  animation-delay: 0s, 0s;
+  animation-fill-mode: forwards;
+  left: 0;
+  padding-top: 5vh;
+}
+.q#q-1 .sec-left {
+  background-color: #0027C8;
+  right: 0;
+}
+.q#q-1 .sec-right {
+  background-color: #FF3C82;
+  left: -100%;
+  float: left;
+}
+.q#q-2 .sec-left {
+  background-color: #FF3C82;
+}
+.q#q-2 .sec-right {
+  background-color: #1469FF;
+  right: -100%;
+}
+.q#q-2 h1 {
+  color: #fff;
+}
+.q .sec-left {
+  width: 100vw;
+  height: 100vh;
+  display: inline-block;
+  position: absolute;
+  z-index: 900;
+}
+.q .sec-left.qhide {
+  display: none;
+}
+.q .sec-left .question-frame {
+  padding: 186px 20px 0 20px;
+}
+.q .sec-right {
+  width: 41.22%;
+  height: 100vh;
+  display: inline-block;
+  position: relative;
+  float: right;
+  transition: all 1s;
+}
+.q h1 {
+  font-size: 48px;
+  font-family: "Lora", serif;
+  color: #FF3C82;
+  margin: 0;
+  margin-bottom: 10px;
+}
+.q .question {
+  font-size: 26px;
+  font-weight: 500;
+  color: #fff;
+  line-height: 1.4;
+}
+.q .remark {
+  font-size: 18px;
+  color: #fad033;
+  line-height: 36px;
+}
+.q .options {
+  margin-top: 20px;
+  font-size: 16px;
+}
+.q .options .option {
+  text-align: center;
+  border: 2px solid #fff;
+  border-radius: 30.5px;
+  line-height: 36px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.q .options .option:hover {
+  background-color: #fff;
+  color: #1469FF;
+}
+
+.q #right-0 .square {
+  width: 179px;
+  height: 179px;
+  background-color: #FF3C82;
+  position: absolute;
+  left: 69px;
+  animation: q1SqMove 1s, hiddenToVisible 1s, reverseRotate 5s;
+  animation-delay: 0s, 0s, 2s;
+  animation-fill-mode: forwards;
+}
+.q #right-0 .triangle {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 73.5px 127.3px 73.5px;
+  border-color: transparent transparent #fad033 transparent;
+  position: absolute;
+  transition: 1s linear;
+  right: -25px;
+  animation: q1TriMove 1s, hiddenToVisible 1s, rotate360 5s;
+  animation-delay: 0s, 0s, 2s;
+  animation-fill-mode: forwards;
+}
+.q #right-0 .circle {
+  width: 402px;
+  height: 402px;
+  background-color: #000;
+  bottom: -201px;
+  right: -100px;
+  animation: q1CirMove 1s, hiddenToVisible 1s, scale 5s;
+  animation-delay: 0s, 0s, 2s;
+  animation-fill-mode: forwards;
+}
+.q #right-1 .square {
+  width: 328px;
+  height: 328px;
+  background-color: #fad033;
+  position: absolute;
+  transform: rotate(54deg);
+  left: -40%;
+  top: 13%;
+  animation: q2SqMove 1.5s, hiddenToVisible 1.5s, q2SqReverseRotate 5s;
+  animation-delay: 0.5s, 0.5s, 2s;
+  animation-fill-mode: forwards;
+}
+.q #right-1 .triangle {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent transparent #fff transparent;
+  position: absolute;
+  transition: 1s linear;
+  transform: rotate(32deg);
+  right: 8%;
+  border-width: 0 135.5px 240.45px 135.5px;
+  animation: q2TriMove 2.5s, hiddenToVisible 2.5s, q2TriRotate 5s;
+  animation-delay: 0.5s, 0.5s, 2s;
+  animation-fill-mode: forwards;
+}
+.q #right-1 .circle {
+  width: 191px;
+  height: 191px;
+  background-color: #000;
+  left: 30%;
+  z-index: 2;
+  animation: q2CirMove 2.5s, hiddenToVisible 1s;
+  animation-delay: 0.5s, 0s;
+  animation-fill-mode: forwards;
+}
+.q #right-2 .square {
+  width: 328px;
+  height: 328px;
+  background-color: #0027C8;
+  position: absolute;
+  transform: rotate(92deg);
+  left: 12%;
+  top: 13%;
+  animation: q3SqMove 1.5s, hiddenToVisible 1.5s, q3qReverseRotate 5s;
+  animation-delay: 0.5s, 0.5s, 2s;
+  animation-fill-mode: forwards;
+}
+.q #right-2 .triangle {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent transparent #000 transparent;
+  position: absolute;
+  transition: 1s linear;
+  transform: rotate(32deg);
+  bottom: 8%;
+  border-width: 0 115.5px 200.45px 115.5px;
+  right: -3%;
+  animation: q3TriMove 2.5s, hiddenToVisible 2.5s, q2TriRotate 8s;
+  animation-delay: 0.5s, 0.5s, 2.5s;
+  animation-fill-mode: forwards;
+}
+.q #right-2 .circle {
+  width: 312px;
+  height: 312px;
+  background-color: #fff;
+  top: -12.5%;
+  right: -12.5%;
+  z-index: 2;
+  animation: q3CirMove 2.5s, hiddenToVisible 1s;
+  animation-delay: 0.5s, 0s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes clockwise {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+@keyframes counterclockwise {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+@keyframes circleScale {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+@keyframes overScale {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(10);
+  }
+}
+@keyframes changeSquareWidth {
+  0% {
+    width: 450px;
+    height: 450px;
+  }
+  100% {
+    width: 200%;
+    height: 200%;
+  }
+}
+@keyframes changeCircleWidth {
+  0% {
+    width: 500px;
+    height: 500px;
+  }
+  100% {
+    width: 200%;
+    height: 200%;
+  }
+}
+@keyframes visibleToHidden {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes hiddenToVisible {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes rotate360 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes reverseRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+@keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes zoom {
+  0% {
+    transform: scale(0.2);
+    opacity: 1;
+  }
+  70% {
+    transform: scale(2);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/* Division by zero animation */
+@keyframes broken {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  5% {
+    transform: rotate(5deg);
+  }
+  15% {
+    transform: rotate(-5deg);
+  }
+  20% {
+    transform: rotate(5deg);
+  }
+  25% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(45deg);
+  }
+  70% {
+    transform: translate3d(0, 2000px, 0);
+    opacity: 1;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    transform: translate3d(0, -2000px, 0);
+  }
+}
+/* Reset button fadein */
+@keyframes fadein {
+  0% {
+    top: 20em;
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes question-frame {
+  0% {
+    top: 100%;
+  }
+  100% {
+    top: -100px;
+  }
+}
+@keyframes q1SqMove {
+  0% {
+    top: 100%;
+  }
+  100% {
+    top: 108px;
+  }
+}
+@keyframes q1TriMove {
+  0% {
+    top: 100%;
+  }
+  100% {
+    top: 280px;
+  }
+}
+@keyframes q2SqMove {
+  0% {
+    top: 100%;
+  }
+  100% {
+    top: 35%;
+  }
+}
+@keyframes q2TriMove {
+  0% {
+    top: 100%;
+  }
+  100% {
+    top: -12%;
+  }
+}
+@keyframes q3SqMove {
+  0% {
+    top: 100%;
+  }
+  100% {
+    top: 13%;
+  }
+}
+@keyframes q3CirMove {
+  0% {
+    top: 100%;
+  }
+  100% {
+    top: -12.5%;
+  }
+}
+@keyframes q1CirMove {
+  0% {
+    bottom: -100%;
+  }
+  100% {
+    bottom: -201px;
+  }
+}
+@keyframes q2CirMove {
+  0% {
+    bottom: -100%;
+  }
+  100% {
+    bottom: 20%;
+  }
+}
+@keyframes q3TriMove {
+  0% {
+    bottom: -100%;
+  }
+  100% {
+    bottom: 8%;
+  }
+}
+@keyframes q2TriRotate {
+  0% {
+    transform: rotate(32deg);
+  }
+  100% {
+    transform: rotate(392deg);
+  }
+}
+@keyframes q2SqReverseRotate {
+  0% {
+    transform: rotate(54deg);
+  }
+  100% {
+    transform: rotate(-306deg);
+  }
+}
+@keyframes q3qReverseRotate {
+  0% {
+    transform: rotate(92deg);
+  }
+  100% {
+    transform: rotate(69.5deg);
+  }
+}

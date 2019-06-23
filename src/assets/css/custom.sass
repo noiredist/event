@@ -1,0 +1,554 @@
+$color-primary: #0027C8
+$color-primary-light: #1469FF
+$color-primary-pink: #FF3C82
+$color-black: #000
+$color-white: #fff
+$a-tags: 'a, a:active, a:hover, a:visited'
+
+@import url('https://fonts.googleapis.com/css?family=Lora')
+@mixin size($w,$h:$w)
+  width: $w
+  height: $h
+@mixin flexCenter
+  display: flex
+  justify-content: center
+  align-items: center
+@mixin transformCenter
+  left: 50%
+  top: 50%
+  transform: translate(-50%,-50%)
+  
+html, body
+  margin: 0
+  padding: 0
+  font-size: 16px
+  @include flexCenter
+  background: #100a1c
+  // background-image: radial-gradient(50% 30% ellipse at center top, #201e40 0%, rgba(0,0,0,0) 100%),radial-gradient(60% 50% ellipse at center bottom, #261226 0%, #100a1c 100%)
+  background-image: radial-gradient(50% 30% ellipse at center top, #e6f2df 0%, rgba(0,0,0,0) 100%),radial-gradient(60% 50% ellipse at left bottom, #e69286 0%, #eae9ca 100%),radial-gradient(70% 50% ellipse at right bottom, #f0ea94 0%, #f0ea94 100%)
+  background-attachment: fixed
+  color: #6cacc5
+  position: relative
+  font-family: 'Roboto','serif' 
+  // border: 10px solid $color-black
+  +size(100%)
+
+#{$a-tags}
+  color: #ffffff
+  text-decoration: none
+
+#app
+  // background: radial-gradient(50% 30% ellipse at center top, #201e40 0%, rgba(0,0,0,0) 100%),radial-gradient(60% 50% ellipse at center bottom, #261226 0%, #100a1c 100%)
+  // background-attachment: fixed  
+
+#hello
+  +size(100%)
+  color: #333
+  position: relative
+  overflow: scroll
+  // background: url('./assets/home-bg.b4e32ed.jpg') top center no-repeat
+  // background-size: cover
+  .loading
+    +size(100%)
+    // background-color: $color-primary-light
+    color: $color-white
+    position: relative
+    overflow: hidden
+    animation: visibleToHidden 1s
+    animation-delay: 3s
+    animation-fill-mode: forwards
+    // background: url('./assets/loading-bg.jpg') top center no-repeat
+    // background-size: cover
+    h1
+      display: inline-block
+      position: absolute
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#FAE68F), color-stop(40%, #D5B54D), to(#B9912C))
+      background-image: linear-gradient(#FAE68F 0%, #D5B54D 40%, #B9912C 100%)
+      -webkit-background-clip: text
+      -webkit-text-fill-color: transparent
+      // background: linear-gradient(#FAE68F 0%, #D5B54D 40%, #B9912C 100%)
+      top: 50%
+      left: 70%
+      transform: translate(-50%,-50%)
+      font-size: 26px
+      font-weight: normal
+      width: 100%
+      text-align: center
+      transition: linear 2s
+    h3
+      position: absolute
+      top: 70%
+      left: 70%
+      text-align: center
+      transform: translate(-50%,-50%)
+      font-size: 30px
+      font-weight: 100
+      transition: linear 2s
+    & .square
+      opacity: 0
+      width: 100%
+      margin-top: 70vw
+      color: #fff
+      position: absolute
+      font-size: 36px
+      text-align: center
+      // @include transformCenter
+      transform: scale(2)
+      animation: zoom 1s ease-in-out
+      animation-delay: 0s
+    & .square2
+      opacity: 0
+      width: 100%
+      margin-top: 70vw
+      color: #fff
+      position: absolute
+      font-size: 36px
+      text-align: center
+      // @include transformCenter
+      transform: scale(2)
+      animation: zoom 1s ease-in-out
+      animation-delay: 1s 
+    & .square3
+      opacity: 0
+      width: 100%
+      margin-top: 70vw
+      color: #fff
+      position: absolute
+      font-size: 36px
+      text-align: center
+      // @include transformCenter
+      transform: scale(2)
+      animation: zoom 1s ease-in-out
+      animation-delay: 2s   
+    & .circle
+      +size(500px)
+      // background-color: $color-primary
+      @include transformCenter
+      animation: circleScale 5s, changeCircleWidth 1s
+      animation-delay: 0s, 6.5s
+    & .star-wrap
+      position: absolute
+      @include transformCenter
+      transform: translate(-50%,-50%) rotate(0deg)
+      transition: linear 1s
+      animation: clockwise 5s, overScale 2s 
+      animation-delay: 0s, 7s
+      animation-fill-mode: forwards
+      .triangle
+        width: 0
+        height: 0
+        border-style: solid
+        border-width: 0 182.5px 313px 182.5px
+        border-color: transparent transparent transparent transparent
+        position: relative
+        left: 0
+        top: 130px
+      .triangle-r
+        width: 0
+        height: 0
+        border-style: solid
+        border-width: 0 182.5px 313px 182.5px
+        border-color: transparent transparent transparent transparent
+        transform: rotate(180deg)
+        position: relative
+        left: 0
+        top: -130px
+.square   
+  transition: linear 1s 
+.circle
+  position: absolute
+  border-radius: 50%
+  transition: linear 1s
+
+.qhide
+  display: none
+
+//finish
+#done-wrap
+  +size(100%)
+  display: none
+  color: $color-white
+  position: absolute
+  top: 0
+  left: 0
+  overflow: hidden
+  transition: linear 1s
+  .option
+      width: 45%
+      margin-bottom: 20vh
+      margin-right: 2.5%
+      bottom: 30%
+      float: right
+      text-align: center
+      border: 2px solid $color-white
+      border-radius: 30.5px
+      line-height: 2.8
+      cursor: pointer
+      transition: all .3s
+      display: block
+      height: 9vw
+      font-size: 4.6vmin
+  h1
+    display: inline-block
+    position: absolute
+    top: 39%
+    left: 50%
+    transform: translate(-50%,-50%)
+    font-size: 40px
+    width: 100%
+    text-align: center
+    transition: linear 2s
+    z-index: 2
+  h3
+    position: absolute
+    width: 75%
+    top: 50%
+    left: 50%
+    text-align: center
+    transform: translate(-50%,-50%)
+    font-size: 22px
+    font-weight: 100
+    transition: linear 2s    
+    z-index: 2
+    letter-spacing: 2px
+  p
+    width: 80%
+    margin-left: 10%
+    margin-top: 60vh
+
+  //triangle
+  .t-0, .t-1, .t-2, .t-3, .t-4 
+    width: 0
+    height: 0
+    border-style: solid
+    position: absolute
+    transition: 1s linear
+    animation-fill-mode: forwards
+.bg2
+    background: url('./assets/home-bg.b4e32ed.jpg') top center no-repeat
+    background-size: cover   
+// 問卷
+.q
+  width: 100vw
+  height: 100vh
+  padding: 0
+  margin: 0
+  position: absolute
+  top: 0
+  animation: question-frame .8s, hiddenToVisible 1s
+  animation-delay: 0s, 0s
+  animation-fill-mode: forwards
+  left: 0
+  padding-top: 5vh
+  &#q-1
+    .sec-left
+      background-color: $color-primary
+      right: 0
+    .sec-right
+      background-color: $color-primary-pink
+      left: -100%
+      float: left
+  &#q-2
+    .sec-left
+      background-color: $color-primary-pink
+    .sec-right
+      background-color: $color-primary-light
+      right: -100%
+    h1
+      color: $color-white
+  .sec-left
+    width: 100vw
+    height: 100vh
+    // border: 1px solid black
+    display: inline-block
+    position: absolute
+    // overflow: hidden
+    z-index: 900
+    &.qhide
+      display: none
+    .question-frame  
+      padding: 186px 30px 0 30px
+  .sec-right
+    width: 41.22%
+    height: 100vh
+    // background-color: $color-primary
+    display: inline-block
+    position: relative
+    float: right
+    transition: all 1s
+  h1
+    font-size: 48px
+    font-family: 'Lora', serif
+    color: $color-primary-pink
+    margin: 0
+    margin-bottom: 10px
+    // -webkit-text-fill-color: transparent
+    // -webkit-text-stroke-width: .1rem
+    // -webkit-text-stroke-color: #000
+  .question
+    font-size: 26px
+    color: #e4c68a
+    line-height: 1.4
+  .remark
+    font-size: 18px
+    color: #e4c68a
+    line-height: 36px
+  .options
+    margin-top: 20px
+    font-size: 16px
+    .option
+      text-align: center
+      border: 1px solid rgba(255,255,255,.4)
+      border-radius: 30.5px
+      line-height: 3
+      background: rgba(192,192,192,.2)
+      cursor: pointer
+      transition: all .3s  
+      &:hover
+        background-color: $color-white
+        color: $color-primary-light
+.q
+  #right-0
+    .square
+      +size(179px)
+      background-color: $color-primary-pink
+      position: absolute   
+      // top: 108px
+      left: 69px
+      animation: q1SqMove 1s, hiddenToVisible 1s,reverseRotate 5s
+      animation-delay: 0s, 0s, 2s
+      animation-fill-mode: forwards
+    .triangle
+      width: 0
+      height: 0
+      border-style: solid
+      border-width: 0 73.5px 127.3px 73.5px
+      border-color: transparent transparent #fad033 transparent
+      position: absolute
+      transition: 1s linear
+      right: -25px
+      // top: 280px
+      animation: q1TriMove 1s, hiddenToVisible 1s, rotate360 5s
+      animation-delay: 0s, 0s, 2s
+      animation-fill-mode: forwards
+    .circle
+      +size(402px)
+      background-color: $color-black
+      bottom: -201px
+      right: -100px
+      animation: q1CirMove 1s, hiddenToVisible 1s,scale 5s
+      animation-delay: 0s, 0s, 2s
+      animation-fill-mode: forwards
+  #right-1
+    .square
+      +size(328px)
+      background-color: #fad033
+      position: absolute   
+      transform: rotate(54deg)
+      left: -40%
+      top: 13%
+      animation: q2SqMove 1.5s, hiddenToVisible 1.5s,q2SqReverseRotate 5s
+      animation-delay: 0.5s, 0.5s, 2s
+      animation-fill-mode: forwards
+    .triangle
+      width: 0
+      height: 0
+      border-style: solid
+      border-color: transparent transparent $color-white transparent
+      position: absolute
+      transition: 1s linear
+      transform: rotate(32deg)
+      right: 8%
+      border-width: 0 135.5px 240.45px 135.5px
+      animation: q2TriMove 2.5s, hiddenToVisible 2.5s, q2TriRotate 5s
+      animation-delay: 0.5s, 0.5s, 2s
+      animation-fill-mode: forwards
+    .circle
+      +size(191px)
+      background-color: $color-black
+      left: 30%
+      z-index: 2
+      animation: q2CirMove 2.5s, hiddenToVisible 1s
+      animation-delay: 0.5s, 0s
+      animation-fill-mode: forwards
+  #right-2
+    .square
+      +size(328px)
+      background-color: $color-primary
+      position: absolute   
+      transform: rotate(92deg)
+      left: 12%
+      top: 13%
+      animation: q3SqMove 1.5s, hiddenToVisible 1.5s,q3qReverseRotate 5s
+      animation-delay: 0.5s, 0.5s, 2s
+      animation-fill-mode: forwards
+    .triangle
+      width: 0
+      height: 0
+      border-style: solid
+      border-color: transparent transparent $color-black transparent
+      position: absolute
+      transition: 1s linear
+      transform: rotate(32deg)
+      bottom: 8%
+      border-width: 0 115.5px 200.45px 115.5px
+      right: -3%
+      animation: q3TriMove 2.5s, hiddenToVisible 2.5s, q2TriRotate 8s
+      animation-delay: 0.5s, 0.5s, 2.5s
+      animation-fill-mode: forwards
+    .circle
+      +size(312px)
+      background-color: $color-white
+      top: -12.5%
+      right: -12.5%
+      z-index: 2
+      animation: q3CirMove 2.5s, hiddenToVisible 1s
+      animation-delay: 0.5s, 0s
+      animation-fill-mode: forwards
+      
+@keyframes clockwise
+  0%
+    transform: translate(-50%,-50%) rotate(0deg)
+  100%
+    transform: translate(-50%,-50%) rotate(360deg)
+
+@keyframes counterclockwise
+  0%
+    transform: translate(-50%,-50%) rotate(0deg)
+  100%
+    transform: translate(-50%,-50%) rotate(-360deg)
+  
+@keyframes circleScale
+  0%
+    transform: translate(-50%,-50%) scale(1)
+  50%
+    transform: translate(-50%,-50%) scale(1.1)
+  100%
+    transform: translate(-50%,-50%) scale(1)
+
+@keyframes overScale
+  0%
+    transform: translate(-50%,-50%) scale(1)
+  100%
+    transform: translate(-50%,-50%) scale(10)
+@keyframes changeSquareWidth
+  0%
+    width: 450px
+    height: 450px
+  100%
+    width: 200%
+    height: 200%
+@keyframes changeCircleWidth
+  0%
+    width: 500px
+    height: 500px
+  100%
+    width: 200%
+    height: 200%
+@keyframes visibleToHidden
+  0%
+    opacity: 1
+  100%
+    opacity: 0
+@keyframes hiddenToVisible
+  0%
+    opacity: 0
+  100%
+    opacity: 1
+@keyframes rotate360
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)
+
+@keyframes reverseRotate
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(-360deg)
+@keyframes scale
+  0%
+    transform: scale(1)
+  50%
+    transform: scale(1.1)
+  100%
+    transform: scale(1)
+
+//
+
+@keyframes zoom 
+  0% 
+    transform: scale(.2) 
+    opacity: 1
+  70%  
+    transform: scale(2)  
+  100% 
+    opacity: 0
+
+/* Division by zero animation */
+@keyframes broken
+  0%
+    transform: translate3d(0,0,0)
+  5%
+    transform: rotate(5deg)
+  15%
+    transform: rotate(-5deg)
+  20%
+    transform: rotate(5deg)
+  25%
+    transform: rotate(-5deg)
+  50%
+    transform: rotate(45deg)
+  70%
+    transform: translate3d(0,2000px,0)
+    opacity: 1
+  75%
+    opacity: 0
+  100%
+    transform: translate3d(0,-2000px,0)
+
+/* Reset button fadein */
+@keyframes fadein
+  0%
+    top: 20em
+    opacity: 0
+  50%
+    opacity: 0
+  100%
+    opacity: 1
+//
+
+=keyframes($name,$top)
+  @keyframes #{$name}
+    0%
+      top: 100%
+    100%
+      top: $top
+
+=keyframesBottomMove($name,$bottom)
+  @keyframes #{$name}
+    0%
+      bottom: -100%
+    100%
+      bottom: $bottom
+
+=keyframesRotate($name,$startDeg,$endDeg)
+  @keyframes #{$name}
+    0%
+      transform: rotate($startDeg)
+    100%
+      transform: rotate($endDeg)
+
++keyframes(question-frame,-100px)
++keyframes(q1SqMove,108px)
++keyframes(q1TriMove,280px)
++keyframes(q2SqMove,35%)
++keyframes(q2TriMove,-12%)
++keyframes(q3SqMove,13%)
++keyframes(q3CirMove,-12.5%)
++keyframesBottomMove(q1CirMove,-201px)
++keyframesBottomMove(q2CirMove,20%)
++keyframesBottomMove(q3TriMove,8%)
++keyframesRotate(q2TriRotate, 32deg, 32deg + 360deg)
++keyframesRotate(q2SqReverseRotate, 54deg, 54deg - 360deg)
++keyframesRotate(q3qReverseRotate, 92deg, 92deg - 22.5deg)
